@@ -918,11 +918,8 @@
 
             sendEmailButton.textContent = "Sending ....."
             sendEmailButton.disabled = true
-
-            let url = "https://videostream-six.vercel.app"
-
             try {
-                const response = await fetch(`${url}/send-mail`, {
+                const response = await fetch("/send-mail", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
