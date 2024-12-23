@@ -33,6 +33,43 @@
 <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
 
+   <!-- Structured Data (JSON-LD Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Organization",
+      "name": "SOLUTIONS AR INSURANCE BROKER",
+      "url": "https://solutionsar.co.tz",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://solutionsar.co.tz/img/logo.png",
+        "width": 250,
+        "height": 80
+      },
+      "description": "SOLUTIONS AR INSURANCE BROKER offers tailored insurance solutions in Tanzania, including health, life, and business coverage.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+255 757 521 791",
+        "contactType": "customer service",
+        "areaServed": "TZ",
+        "availableLanguage": ["English", "Swahili"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mbezi Beach B, Makonde Street",
+        "addressLocality": "Dar es Salaam",
+        "addressRegion": "Dar es Salaam",
+        "postalCode": "12345",
+        "addressCountry": "Tanzania"
+      },
+      "sameAs": [
+        "https://www.facebook.com/solutionsar",
+        "https://www.instagram.com/solutionsarinsurancebrokerltd/",
+        "https://www.linkedin.com/company/solutionsar"
+      ]
+    }
+    </script>
+
 <!-- Web App Manifest -->
 <link rel="manifest" href="site.webmanifest">
 
@@ -89,11 +126,60 @@
         #landingPageParagraph {
 
         }
+
+                /* WhatsApp button styles */
+        #whatsappButton {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 20px;
+            right: 100px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: bounce 1.5s infinite;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #whatsappButton a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        #whatsappButton:hover {
+            background-color: #20c25d;
+            animation: none; /* Stop bounce on hover */
+        }
+
+        /* Bouncing animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         </style>
     </head>
     </head>
 
     <body style="position: relative;">
+
+        <div id="whatsappButton" class="whatsapp-bouncing-button">
+            <a href="https://wa.me/255752500057" target="_blank">
+                <i class="fab fa-whatsapp fa-2x"></i>
+            </a>
+        </div>
+
 
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -871,6 +957,15 @@
               document.addEventListener("DOMContentLoaded", function () {
                 // Get references to the modal and video elements
                 const videoModal = document.getElementById("videoModal");
+                const whatsappButton = document.getElementById("whatsappButton");
+                const contactSection = document.getElementById("contact");
+
+
+                 window.addEventListener("scroll", function () {
+                    if (isInViewport(contactSection)) {
+                        whatsappButton.style.display = "flex"; // Show WhatsApp button
+                    }
+                });
 
                 // Ensure the video player element is accessed after the modal is shown
                 videoModal.addEventListener("shown.bs.modal", function () {
@@ -1022,6 +1117,15 @@
                 notification.style.display = "none"
             }, 3000)
         }
+
+
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= window.innerHeight &&
+                    rect.bottom >= 0
+                );
+            }
 
         </script>
 
