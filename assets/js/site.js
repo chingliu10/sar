@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Life Insurance": {
             title: "Life Insurance",
             content: `
+                <p class="mb-4">Life insurance provides financial security for beneficiaries in the event of the policyholder's death.</p>
                 <div>
                     <ul>
                         <li><strong>Term Life Insurance:</strong> Affordable coverage for a specified period.</li>
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Health Insurance": {
             title: "Health Insurance",
             content: `
+                <p class="mb-4">Comprehensive health insurance to cover medical expenses, ensuring peace of mind for you and your family.</p>
                 <div>
                     <ul>
                         <li><strong>Individual and Family Plans:</strong> Coverage for medical treatments, hospitalizations, and outpatient care.</li>
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Vehicle Insurance": {
             title: "Vehicle Insurance",
             content: `
+                <p class="mb-4">Protect your vehicle against accidents, theft, and damages with our comprehensive car insurance policies.</p>
                 <div>
                     <ul>
                         <li><strong>Comprehensive Plans:</strong> Covers both own vehicle damage and third-party liabilities.</li>
@@ -79,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Property Insurance": {
             title: "Property Insurance",
             content: `
+                <p class="mb-4">Safeguard your home, office, and valuable assets against risks like fire, theft, and natural disasters.</p>
                 <div>
                     <ul>
                         <li><strong>Home Insurance:</strong> Coverage for residential properties and contents.</li>
@@ -91,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Bond Insurance": {
             title: "Bond Insurance",
             content: `
+                <p class="mb-4">Provides coverage for goods and vessels during transit by sea, air, or land.</p>
                 <div>
                     <ul>
                         <li><strong>Performance Bonds:</strong> Guarantees project completion.</li>
@@ -105,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Business Insurance": {
             title: "Business Insurance",
             content: `
+                <p class="mb-4">Designed to safeguard organizations from financial losses due to unforeseen events.</p>
                 <div>
                     <ul>
                         <li><strong>General Liability Insurance:</strong> Protection against third-party claims.</li>
@@ -118,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Marine Insurance": {
             title: "Marine Insurance",
             content: `
+                <p class="mb-4">Provides coverage for goods and vessels during transit by sea, air, or land.</p>
                 <div>
                     <ul>
                         <li><strong>Cargo Insurance:</strong> Protection for goods against loss or damage.</li>
