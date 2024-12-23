@@ -43,10 +43,10 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://solutionsar.co.tz/img/logo.png",
-        "width": 250,
-        "height": 80
+        "width": 500,
+        "height": 500
       },
-      "description": "SOLUTIONS AR INSURANCE BROKER offers tailored insurance solutions in Tanzania, including health, life, and business coverage.",
+      "description": "SOLUTIONS AR INSURANCE BROKER - Your trusted insurance partner in Tanzania. We provide comprehensive insurance solutions for individuals and businesses in Dar Es Salaam and beyond.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+255 757 521 791",
@@ -59,13 +59,10 @@
         "streetAddress": "Mbezi Beach B, Makonde Street",
         "addressLocality": "Dar es Salaam",
         "addressRegion": "Dar es Salaam",
-        "postalCode": "12345",
         "addressCountry": "Tanzania"
       },
       "sameAs": [
-        "https://www.facebook.com/solutionsar",
-        "https://www.instagram.com/solutionsarinsurancebrokerltd/",
-        "https://www.linkedin.com/company/solutionsar"
+        "https://www.instagram.com/solutionsarinsurancebrokerltd/profilecard/?igsh=bnFvbGFxaGlyOXBl",
       ]
     }
     </script>
@@ -283,7 +280,7 @@
                                     <h1 class="display-1 text-white mb-4">Your Trusted Partner in Insurance Excellence</h1>
                                     <p class="mb-5 fs-5" id="landingPageParagraph">Discover comprehensive insurance solutions tailored to your unique needs. From personal protection to business coverage, we're here to secure your future with expert guidance and unwavering support.</p>
                                     <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <button class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" data-bs-toggle="modal" data-bs-target="#videoModal">
+                                        <button class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" data-bs-toggle="modal" id="ourStory" data-bs-target="#videoModal">
                                             <i class="fas fa-play-circle me-2"></i> Our Story
                                         </button>
                                         <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#about">About Us</a>
@@ -952,183 +949,7 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-        <script>
-            
-              document.addEventListener("DOMContentLoaded", function () {
-                // Get references to the modal and video elements
-                const videoModal = document.getElementById("videoModal");
-                const whatsappButton = document.getElementById("whatsappButton");
-                const contactSection = document.getElementById("contact");
-
-
-                 window.addEventListener("scroll", function () {
-                    if (isInViewport(contactSection)) {
-                        whatsappButton.style.display = "flex"; // Show WhatsApp button
-                    }
-                });
-
-                // Ensure the video player element is accessed after the modal is shown
-                videoModal.addEventListener("shown.bs.modal", function () {
-                const videoPlayer = document.getElementById("videoPlayer");
-                if (videoPlayer) {
-                    videoPlayer.play(); // Automatically play the video when the modal opens
-                }
-                });
-
-                videoModal.addEventListener("hidden.bs.modal", function () {
-                    const videoPlayer = document.getElementById("videoPlayer");
-                    if (videoPlayer) {
-                        videoPlayer.pause(); // Pause the video when the modal closes
-                        videoPlayer.currentTime = 0; // Reset the video to the beginning
-                    }
-                    });
-                });
-                    
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    });
-                });
-
-                
-                document.querySelectorAll('.toggle-content').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const extraContent = button.parentElement.querySelector('.extra-content');
-                        if (extraContent.style.display === 'none') {
-                            extraContent.style.display = 'block';
-                            button.textContent = 'Show Less';
-                        } else {
-                            extraContent.style.display = 'none';
-                            button.textContent = 'Learn More';
-                        }
-                    });
-                });
-
-
-        document.querySelector("form").addEventListener("submit", async function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value;
-            const phone = document.getElementById("phone").value;
-            const name = document.getElementById("name").value;
-            const email  = document.getElementById("email").value;
-
-            const sendEmailButton  = document.querySelector("#sendEmailButton")
-           
-
-            const checkForm =  validateForm(subject , message , phone , name, email)
-        
-
-            if(!checkForm) {
-                return false
-            }
-
-
-            sendEmailButton.textContent = "Sending ....."
-            sendEmailButton.disabled = true
-            try {
-                const response = await fetch("/send-mail", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ subject, name , email, phone ,  message }),
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    displayNotification("Message sent successfully!", "green")
-
-                } else {
-                    const errorData = await response.json();
-                    displayNotification("Failed to send message.", "red")
-                }
-            } catch (error) {
-                    displayNotification("Failed to send message.", "red")
-            } finally {
-                 sendEmailButton.textContent = "Send Message"
-                sendEmailButton.disabled = false   
-            }
-        });
-
-        function validateForm(subject , message , phone , name, email) {
-
-                if(!name) {
-                    displayNotification("Name is required", "orange");
-                    return false
-                } 
-
-                if(name.length < 3 || name.length > 20 ) {
-                    displayNotification("Your name is too short or long", "orange");
-                    return false
-                }
-
-                if(!subject) {
-                    displayNotification("Subject is required", "orange");
-                    return false
-                } 
-
-                if(subject.length < 3 || subject.length > 20 ) {
-                    displayNotification("Subject is too short or too long", "orange");
-                    return false
-                }
-
-                if(!message) {
-                    displayNotification("Message is required", "orange");
-                    return false
-                } 
-
-                if(message.length < 3 || message.length > 300 ) {
-                    displayNotification("Your Messahe is too short or long", "orange");
-                    return false
-                }
-
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                if (!email || !emailRegex.test(email)) {
-                    displayNotification("Provide a valid email address", "orange");
-                    return false
-                 }
-                
-                 const phoneRegex = /^0[76]\d{8}$/; // Starts with 0, second digit is 7 or 6, followed by 8 digits
-                if (!phone || !phoneRegex.test(phone)) {
-                    displayNotification("Provide a valid phone number", "orange");
-                    return false
-                }
-
-
-                return true
-        }
-
-        function displayNotification (message , backgroundColor ) {
-
-            const notification = document.querySelector("#notification")
-
-            notification.style.display = "block"
-            notification.textContent = message
-            notification.style.backgroundColor = backgroundColor
-            notification.style.color = "whitesmoke"
-
-            setTimeout(function () {
-                notification.style.display = "none"
-            }, 3000)
-        }
-
-
-            function isInViewport(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top <= window.innerHeight &&
-                    rect.bottom >= 0
-                );
-            }
-
-        </script>
-
+        <script src="js/site.js"></script>
     </body>
 
 </html>
