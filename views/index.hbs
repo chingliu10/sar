@@ -68,7 +68,7 @@
     </script>
 
 <!-- Web App Manifest -->
-<link rel="manifest" href="site.webmanifest">
+<link rel="manifest" href="/img/site.webmanifest">
 
         
         <!-- Google Web Fonts -->
@@ -165,6 +165,85 @@
             }
         }
 
+        /* Slide-In Modal Styles */
+.slideServiceModal {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    overflow-y: auto;
+    transition: right 0.5s ease;
+}
+
+.slideServiceModal h5 {
+    color: whitesmoke;
+}
+
+.slideServiceModal.active {
+    right: 0;
+}
+
+.slideServiceModal .modal-header {
+    padding: 1rem;
+    background: #0d6efd;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slideServiceModal .modal-body {
+    padding: 1rem;
+}
+
+.slideServiceModalBtnClose {
+    font-size: 1.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1049; /* Behind the modal */
+    display: none; /* Hidden by default */
+}
+
+.modal-backdrop.active {
+    display: block; /* Show when active */
+}
+/* Responsive Design */
+@media (min-width: 768px) {
+    .slideServiceModal {
+        width: 30%;
+    }
+
+    #contact {
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .slideServiceModal {
+        width: 100%;
+    }
+
+    #contact {
+        margin-bottom: 150px;
+    }
+}
+
+
         </style>
     </head>
     </head>
@@ -185,6 +264,9 @@
             </div>
         </div>
         <!-- Spinner End -->
+
+        <!-- Modal Backdrop -->
+<div class="modal-backdrop" id="modalBackdrop"></div>
 
         <!-- Topbar Start -->
         <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
@@ -422,6 +504,17 @@
     </div>
 </div>
 <!-- End of Call-to-Action Banner -->
+<!-- service start modal-->
+<!-- Slide-In Modal -->
+<div class="slideServiceModal" id="serviceModal">
+    <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button class="slideServiceModalBtnClose slideServiceModalclose">&times;</button>
+    </div>
+    <div class="modal-body"></div>
+</div>
+
+<!-- service start modal-->
 <!-- Service Start -->
 <div class="container-fluid service py-5" id="service">
     <div class="container py-5">
@@ -444,15 +537,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Life Insurance</a>
                             <p class="mb-4">Life insurance provides financial security for beneficiaries in the event of the policyholder's death.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Term Life Insurance:</strong> Affordable coverage for a specified period.</li>
-                                    <li><strong>Whole Life Insurance:</strong> Lifetime protection with a savings component.</li>
-                                    <li><strong>Customizable Riders:</strong> Options such as accidental death benefits or critical illness coverage.</li>
-                                </ul>
-                                <p><strong>Key Benefits:</strong> Ensures your loved ones' financial stability, provides tax benefits, and offers flexible premium payment options.</p>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Life Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -470,14 +555,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Health Insurance</a>
                             <p class="mb-4">Comprehensive health insurance to cover medical expenses, ensuring peace of mind for you and your family.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Individual and Family Plans:</strong> Coverage for medical treatments, hospitalizations, and outpatient care.</li>
-                                    <li><strong>Corporate Health Insurance:</strong> Group plans for businesses to protect employees.</li>
-                                    <li><strong>Key Benefits:</strong> Access to a wide network of hospitals with cashless claim options. Coverage for pre-existing conditions and preventive healthcare.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Health Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -495,14 +573,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Vehicle Insurance</a>
                             <p class="mb-4">Protect your vehicle against accidents, theft, and damages with our comprehensive car insurance policies.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Comprehensive Plans:</strong> Covers both own vehicle damage and third-party liabilities.</li>
-                                    <li><strong>Third-Party Liability Plans:</strong> Mandatory coverage for damages caused to others.</li>
-                                    <li><strong>Key Benefits:</strong> 24/7 roadside assistance and quick claim settlements to get you back on the road faster.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Vehicle Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -520,14 +591,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Property Insurance</a>
                             <p class="mb-4">Safeguard your home, office, and valuable assets against risks like fire, theft, and natural disasters.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Home Insurance:</strong> Coverage for residential properties and contents.</li>
-                                    <li><strong>Commercial Property Insurance:</strong> Tailored protection for offices, warehouses, and retail spaces.</li>
-                                    <li><strong>Key Benefits:</strong> Comprehensive coverage with optional add-ons like flood protection. Assistance with valuation and risk assessment.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Property Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -545,16 +609,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Bond Insurance</a>
                             <p class="mb-4">Provides financial guarantees ensuring contractual obligations are met.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Performance Bonds:</strong> Guarantees project completion.</li>
-                                    <li><strong>Bid Bonds:</strong> Protects against financial loss if a bidder fails to honor their contract.</li>
-                                    <li><strong>Payment Bonds:</strong> Ensures subcontractors and suppliers are paid.</li>
-                                    <li><strong>Maintenance Bonds:</strong> Covers defects or issues post-project completion.</li>
-                                    <li><strong>Key Benefits:</strong> Mitigates risks, enhances credibility, ensures compliance, and provides financial support for contractual obligations.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Bond Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -572,15 +627,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Business Insurance</a>
                             <p class="mb-4">Designed to safeguard organizations from financial losses due to unforeseen events.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>General Liability Insurance:</strong> Protection against third-party claims.</li>
-                                    <li><strong>Professional Liability Insurance:</strong> Coverage for errors and omissions.</li>
-                                    <li><strong>Business Interruption Insurance:</strong> Compensates for lost income during operational downtime.</li>
-                                    <li><strong>Key Benefits:</strong> Customized policies for specific industries and affordable premiums for SMEs.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Business Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -598,14 +645,7 @@
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Marine Insurance</a>
                             <p class="mb-4">Provides coverage for goods and vessels during transit by sea, air, or land.</p>
-                            <div class="extra-content" style="display: none;">
-                                <ul>
-                                    <li><strong>Cargo Insurance:</strong> Protection for goods against loss or damage.</li>
-                                    <li><strong>Hull Insurance:</strong> Coverage for physical damage to ships and boats.</li>
-                                    <li><strong>Key Benefits:</strong> Comprehensive protection for importers, exporters, and logistics companies. Assistance with claim documentation and processing.</li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-primary rounded-pill py-2 px-4 toggle-content">Learn More</button>
+                            <button class="btn btn-primary rounded-pill py-2 px-4" data-title="Marine Insurance">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -641,7 +681,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="img/tony (1).png" class="img-fluid rounded-top w-100" alt="" style="height: 400px;object-fit: cover;">
+                                <img src="img/tony.png" class="img-fluid rounded-top w-100" alt="" style="height: 400px;object-fit: cover;">
                                 <div class="team-icon">
                                     <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
@@ -763,7 +803,7 @@
 
         
         <!-- Contact Start -->
-        <div class="container contact bg-light py-5" id="contact" style="margin-bottom: 180px;">
+        <div class="container contact bg-light py-5" id="contact">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Contact Us</h4>
