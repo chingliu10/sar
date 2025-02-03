@@ -222,6 +222,46 @@
 .modal-backdrop.active {
     display: block; /* Show when active */
 }
+
+
+
+#hero-section {
+   position: relative;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+
+#blue-colar {
+    background-color: #014CA1;
+    height: 100%;
+}
+
+#hero-image {
+    background-image: url("/img/life.jpg");
+    height: 100%;
+    background-size: cover;
+}
+
+#hero-content {
+    position: absolute;
+    width: 100%;
+}
+
+#hero-content h1{
+    width: 50%;
+}
+
+#hero-content p {
+    width:  45%;
+}
+
+/**
+#playingButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 /* Responsive Design */
 @media (min-width: 768px) {
     .slideServiceModal {
@@ -243,6 +283,19 @@
         background-color: red;
     }
 }
+
+     .carousel-gradient {
+            background:  #0d6efd;
+        }
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-image {
+            max-height: 500px;
+            object-fit: contain;
+        }
 
 
         </style>
@@ -324,7 +377,7 @@
                         </a>
                         <div class="d-flex flex-column ms-3">
                             <span>Call to Our Experts</span>
-                            <a href="tel:+ +255 757 521 791"><span class="text-dark">Free: +255 757 521 791</span></a>
+                            <a href="tel:+ +255 757 521 791"><span class="text-dark">Free: +255 752 500 057</span></a>
                         </div>
                     </div>
                 </nav>
@@ -350,37 +403,89 @@
             </div>
         </div>
         <!-- Modal Search End -->
-        <!-- Carousel Start -->
-        <div class="header-carousel owl-carousel">
-            <!-- Slide 1: Main Value Proposition -->
-            <div class="header-carousel-item bg-primary">
-                <div class="carousel-caption">
+     {{!-- <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container-fluid carousel-gradient text-white py-5 hero-section">
                     <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-7 animated fadeInLeft">
-                                <div class="text-sm-center text-md-start">
-                                    <h4 class="text-white text-uppercase fw-bold mb-4">Welcome to SOLUTIONS AR</h4>
-                                    <h1 class="display-1 text-white mb-4">Your Trusted Partner in Insurance Excellence</h1>
-                                    <p class="mb-5 fs-5" id="landingPageParagraph">Discover comprehensive insurance solutions tailored to your unique needs. From personal protection to business coverage, we're here to secure your future with expert guidance and unwavering support.</p>
-                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <button class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" data-bs-toggle="modal" id="ourStory" data-bs-target="#videoModal">
-                                            <i class="fas fa-play-circle me-2"></i> Our Story
-                                        </button>
-                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#about">About Us</a>
-                                    </div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 text-center text-lg-start">
+                                <h4 class="text-uppercase fw-bold mb-3 animate__animated animate__fadeInLeft">
+                                    Welcome to SOLUTIONS AR
+                                </h4>
+                                <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                                    Your Trusted Partner in Insurance Excellence
+                                </h1>
+                                <p class="lead mb-5 animate__animated animate__fadeInUp">
+                                    Discover comprehensive insurance solutions tailored to your unique needs. From personal protection to business coverage, we're here to secure your future with expert guidance and unwavering support.
+                                </p>
+                                <div class="d-flex justify-content-center justify-content-lg-start">
+                                    <button class="btn btn-light rounded-pill py-3 px-4 me-3" data-bs-toggle="modal" data-bs-target="#videoModal">
+                                        <i class="fas fa-play-circle me-2"></i> Our Story
+                                    </button>
+                                    <a href="#about" class="btn btn-outline-light rounded-pill py-3 px-4">
+                                        Learn More
+                                    </a>
                                 </div>
                             </div>
-                            <div class="col-lg-5 animated fadeInRight">
-                                <div class="carousel-img">
-                                    <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
-                                </div>
+                            <div class="col-lg-5 text-center animate__animated animate__fadeInRight">
+                                <img src="img/life.jpg" alt="Insurance Services" class="img-fluid hero-image">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
+    </div>  --}}
+    {{!-- <div style="display: grid; grid-template-columns : 1fr 1fr;"  class="hero-section container">
+        <div id="hero-section-content">
+             <div id="hero-section-content">
+    <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+        Your Trusted Partner in <u>Insurance</u> Excellence
+    </h1>
+    <p class="fw-bold mb-4">fdgsd gfgdfsgsfd gfgsdfgdsf gsdgsdgs gsgsf</p>
+    <a href="#about" class="btn btn-outline-light rounded-pill py-3 px-4">
+                                        Learn More
+                                    </a>
+</div>
+        </div>
+        <div id="hero-section-image">
+            
+        </div>
+    </div> --}}
 <!-- Carousel End -->
+
+<div id="hero-section" class="hero-section">
+    <div id="blue-colar">
+
+    </div>
+    <div id="hero-image">
+
+    </div>
+    <div id="hero-content" class="hero-section">
+       <div class="container">
+            <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp text-white">
+                Your Trusted Partner in <u>Insurance</u> Excellence
+            </h1>
+            <p class="lead mb-3 animate__animated animate__fadeInUp text-white">
+        Get personalized insurance solutions for both personal and  business protection, ensuring a secure future with expert support
+            </p>
+              <a href="#about" class="btn btn-outline-light py-2 px-2 bg-white" style="color: black;">
+                                        Learn More
+                                    </a>
+            <button  id="playingButton" class="btn btn-light  ms-3 py-3 px-4 me-3" data-bs-toggle="modal" data-bs-target="#videoModal">
+                                        <i class="fas fa-play-circle me-2"></i> Our Story
+                                    </button>
+       </div>
+
+    </div>
+    
+</div>
+
+
+
+
+
 
 <!-- Video Modal -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -529,7 +634,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="Life Insurance">
+                        <img src="img/life.jpg" class="img-fluid rounded-top w-100" alt="Life Insurance">
                         <div class="service-icon p-3">
                             <i class="fa fa-users fa-2x"></i>
                         </div>
@@ -547,7 +652,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="Health Insurance">
+                        <img src="img/health.jpg" class="img-fluid rounded-top w-100" alt="Health Insurance">
                         <div class="service-icon p-3">
                             <i class="fa fa-hospital fa-2x"></i>
                         </div>
@@ -565,7 +670,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="Vehicle Insurance">
+                        <img src="img/car.jpg" class="img-fluid rounded-top w-100" alt="Vehicle Insurance">
                         <div class="service-icon p-3">
                             <i class="fa fa-car fa-2x"></i>
                         </div>
@@ -583,7 +688,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="img/blog-4.png" class="img-fluid rounded-top w-100" alt="Property Insurance">
+                        <img src="img/property.jpg" class="img-fluid rounded-top w-100" alt="Property Insurance">
                         <div class="service-icon p-3">
                             <i class="fa fa-home fa-2x"></i>
                         </div>
