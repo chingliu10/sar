@@ -100,6 +100,14 @@
         <!-- Mobile Color Scheme -->
         <meta name="theme-color" content="#0d6efd">
         <style>
+
+        #siteLogo {
+            position: absolute;
+            top : -20px;left : 50% ; 
+            transform : translateX(-50%); 
+            height : 32px;
+        }
+
         .partner-item {
             transition: transform 0.3s ease-in-out;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -273,7 +281,14 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+
+    #siteLogo {
+        position: static;
+        transform: translateX(0);
+        height: 50px;
+    }
+
     .slideServiceModal {
         width: 100%;
     }
@@ -367,7 +382,9 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light"> 
                     <a href="#" class="navbar-brand p-0">
-                        <h1 class="text-primary mb-0"> <img src="img/logo.png" alt="Logo">olutions AR</h1>
+                        <h1 class="text-primary mb-0" style="position: relative;"> 
+                            <img src="img/logo2.png" alt="Logo" id="siteLogo">
+                            Solutions AR</h1>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
@@ -950,7 +967,7 @@
                     <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="contact-img d-flex justify-content-center" >
                             <div class="contact-img-inner">
-                                
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4524330646186!2d39.20832047504191!3d-6.7145108932813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c5153e6d69529%3A0xcabf0660170c2274!2sSolutions%20Ar%20Insurance%20Broker!5e0!3m2!1sen!2stz!4v1743799651424!5m2!1sen!2stz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
